@@ -4,7 +4,7 @@ It is not mandatory to utilize a loopback interface for OSPF configuration, howe
 
 In the interest of organization and consistency, it is suggested to utilize the IP address scheme 111.111.xxx.xxx for loopback interfaces. Where xxx represents the device type, with 1 indicating Cisco and 2 indicating Juniper. The final octet represents the specific device number, for example, a Juniper device 4 would have the IP address 111.111.2.4.
 
-Assuming basic IP configurations have been completed, the following steps outline the process for configuring loopback interfaces on both Cisco and Juniper devices:
+The following steps outline the process for configuring loopback interfaces on both Cisco and Juniper devices:
 ## On Cisco
 
 To configure the loopback interface on a Cisco device:
