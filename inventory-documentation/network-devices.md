@@ -3,7 +3,7 @@
 ### Jr1 (used show version)
 OS: JUNOS Software Release [12.1X46-D10.2]
 
-Model: Firefly Parameter
+Model: junos-vsrx-12.1X46-D10.2-domestic
 
 Serial Number: 82d3550f1b8d
 
