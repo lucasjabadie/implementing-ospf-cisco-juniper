@@ -1,4 +1,4 @@
-# Deploying OSPF and BGP on Cisco and Juniper using Eve-NG
+# Implementing OSPF on Cisco and Juniper
 
 In this project, we will demonstrate the deployment of OSPF and BGP routing protocols on Cisco and Juniper devices using the Eve-NG virtualization platform. Our goal is to provide a detailed guide that will guide you through each step of the process, including the setup of a virtual lab environment, configuration of OSPF and BGP protocols, and testing and verification of the configurations.
 
