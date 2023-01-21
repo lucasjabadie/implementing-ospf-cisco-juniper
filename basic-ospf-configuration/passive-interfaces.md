@@ -1,1 +1,0 @@
-## Passive interfaces on OSPF
