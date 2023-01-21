@@ -30,3 +30,31 @@ Cr2 is an ABR, it will be responsible for managing multiple areas within the OSP
 If the loopback interface has been previously correctly configured, the output of the command "show ip protocols" should indicate this:
 
 ![image](https://user-images.githubusercontent.com/118945715/213870135-087ae199-184c-46aa-8a06-658a5652dca9.png)
+
+
+## Juniper Configuration
+
+In Juniper, there are two methods for configuring OSPF protocol. The first method involves entering the "edit protocols ospf" command and subsequently configuring interfaces and areas. The second method, which I personally find more convenient, involves using the full command to configure OSPF on multiple interfaces. This can be done by pressing the "up" key and editing the relevant interface and area. 
+
+### Example
+```commandline
+set protocols ospf area 0.0.0.0 interface ge-0/0/0.0
+commit
+```
+- This configures OSPF on the interface ge-0/0/0.0 and assigns it to area 0.0.0.0 (area 0)
+- You can also configure OSPF on multiple interfaces using the following command:
+```commandline
+set protocols ospf area 0.0.0.0 interface ge-0/0/0.0, ge-0/0/1.0
+commit check
+commit
+```
+And like I said, I find more convenient just pressing the "up" key and editing the previous command. But you can do whatever feels more confortable for you.
+
+### Show commands:
+- show ospf neighbor
+- show ospf interface [brief | detail]
+- show ospf overview
+- show route protocol ospf
+
+If the loopback interface has been previously correctly configured, the output of the command "show ospf overview" should indicate this:
+![image](https://user-images.githubusercontent.com/118945715/213872067-cc5df1fb-79fc-4e6d-9793-076fbd68b3cf.png)
