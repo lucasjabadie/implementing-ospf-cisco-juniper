@@ -9,3 +9,41 @@ In some cases, it may not be possible to physically connect a router to the back
 - We need to have the router ids.
 - Virtual links have to be configured on both sides of the link.
 
+## Virtual links configuration
+
+If we take a look at our diagram below, we can see that the link that we have to form is between Jr3 and Cr4. Right now, Area 3 doesn't know about Area 1 or Area 0.
+
+[image]
+
+<b> First, we need the router id on both routers</b>
+
+Cisco:
+```commandline
+show ip ospf
+```
+Juniper:
+```commandline
+show ospf overview
+```
+
+[image]
+
+<b> Now we do the virtual link configuration </b>
+
+## Cisco configuration
+In Cisco, we do the virtual link configuration under the ospf process level.
+
+```commandline
+router ospf 1
+area 2 virtual link 111.111.1.2
+```
+The area that we see in this command, is the transit area. Means that if you are configuring a link between Area 3 and Area 0 on the Diagram, the traffic Area where the virtual link packet travels is Area 2. That's the Area we're gonna use in Cisco.
+
+## Juniper Configuration
+In Juniper, we do the virtual link configuration under the protocols level.
+
+```commandline
+edit protocols ospf
+set area 0 virtual link neighbor-id 111.111.2.3 transit-area 2
+```
+Creating virtual links on Juniper is different than Cisco. Cisco's command uses transit area, but Juniper needs area 0 first before the transit area.
