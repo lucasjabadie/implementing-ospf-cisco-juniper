@@ -1,39 +1,5 @@
 # Basic BGP Configuration
 
-### Cr6 Configuration
-```commandline
-interface Loopback1
- ip address 20.20.10.1 255.255.255.252
-!
-interface Loopback2
- ip address 20.20.20.1 255.255.255.248
-!         
-interface Loopback3
- ip address 20.20.30.1 255.255.255.240
- 
- router bgp 2023
- redistribute connected
- neighbor 3.3.2.1 remote-as 1023
- 
-```
-
-### Cr5 Configuration
-
-```commandline
-router bgp 1023
- bgp log-neighbor-changes
- neighbor 3.3.2.2 remote-as 2
- 
-```
-
-### Cr1 Configuration
-
-```commandline
-router bgp 1023
- bgp log-neighbor-changes
- neighbor 1.1.2.1 remote-as 1
-
-```
 
 ### Jr1 Configuration
 
@@ -93,4 +59,44 @@ policy-options {
         }
     }
 }
+```
+
+
+
+
+
+
+### Cr6 Configuration
+```commandline
+interface Loopback1
+ ip address 20.20.10.1 255.255.255.252
+!
+interface Loopback2
+ ip address 20.20.20.1 255.255.255.248
+!         
+interface Loopback3
+ ip address 20.20.30.1 255.255.255.240
+ 
+ router bgp 2023
+ redistribute connected
+ neighbor 3.3.2.1 remote-as 1023
+ 
+```
+
+### Cr5 Configuration
+
+```commandline
+router bgp 1023
+ bgp log-neighbor-changes
+ neighbor 3.3.2.2 remote-as 2
+ 
+```
+
+### Cr1 Configuration
+
+```commandline
+router bgp 1023
+ bgp log-neighbor-changes
+ neighbor 1.1.2.1 remote-as 1
+
 ```
