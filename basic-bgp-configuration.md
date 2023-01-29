@@ -60,7 +60,32 @@ policy-options {
     }
 }
 ```
+```commandline
+edit interfaces ge-0/0/9
+set vlan-tagging
+set unit 0 vlan-id 1
+set unit 0 family inet address 20.23.0.1/30
+set unit 1 vlan-id 2
+set unit 1 family inet address 20.23.1.1/29
+set unit 2 vlan-id 3
+set unit 2 family inet address 20.23.2.1/28
+commit
 
+edit policy-options
+edit policy-statement BGP-Routes
+set term 1 from protocol direct
+set term 1 then accept
+commit
+
+edit routing-options
+set autonomous-system 1
+commit
+
+edit protocols bgp
+set export BGP-Routes
+set group LAB type external peer-as 1023 neighbor 1.1.6.2
+commit
+```
 
 
 
