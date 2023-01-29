@@ -1,5 +1,9 @@
 # Basic BGP Configuration
 
+This project is not focused on BGP specifically, therefore I will just provide a explanation of its purpose and the commands.
+
+The utilization of BGP or another routing protocol is necessary in order to facilitate route redistribution.
+
 ## BPG AS 1
 ### Jr1 Configuration
 
