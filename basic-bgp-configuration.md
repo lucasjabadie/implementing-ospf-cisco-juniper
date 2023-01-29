@@ -94,13 +94,13 @@ commit
 ### Cr6 Configuration
 ```commandline
 interface Loopback1
- ip address 20.20.10.1 255.255.255.252
+ ip address 15.0.0.2 255.255.255.252
 !
 interface Loopback2
- ip address 20.20.20.1 255.255.255.248
+ ip address 15.0.1.2 255.255.255.248
 !         
 interface Loopback3
- ip address 20.20.30.1 255.255.255.240
+ ip address 15.0.2.2 255.255.255.240
  
  router bgp 2023
  redistribute connected
