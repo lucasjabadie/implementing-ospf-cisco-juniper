@@ -47,5 +47,6 @@ In Juniper, we do the virtual link configuration under the protocols level.
 ```commandline
 edit protocols ospf
 set area 0 virtual-link neighbor-id 111.111.1.4 transit-area 2
+commit
 ```
 Creating virtual links on Juniper is different than Cisco. Cisco's command uses transit area, but Juniper needs area 0 first before the transit area.
