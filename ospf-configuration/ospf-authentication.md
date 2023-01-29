@@ -10,9 +10,9 @@ For this project, we will use OSPF MD5 authentication. For simpler testing or la
 - The key number must be matched on both neighboring interfaces.
 
 ```commandline
-interface g0/1
+interface e0/1
 ip ospf authentication message-digest
-ip ospf message-digest-key 1 md5 cisco123
+ip ospf message-digest-key 1 md5 lab123
 ```
 We do the same commands on both neighboring interfaces.
 ### Show command
@@ -22,6 +22,9 @@ show ip ospf interface g0/1
 ```
 You can see it has sucessfully paired a key because of the "Youngest key id is 1" and that the adjancency is up because of the "Adjacent neighbor count is 1"
 
+![image](https://user-images.githubusercontent.com/118945715/215357728-4a712ec1-359b-410a-ac91-491de086cbee.png)
+
+
 ## Juniper Configuration
 
 - Authentication of OSPF neighbor relationships must be configured beneath the protocols level and then at the interface level.
@@ -30,8 +33,8 @@ You can see it has sucessfully paired a key because of the "Youngest key id is 1
 - The key number must be matched on both neighboring interfaces.
 
 ```commandline
-edit protocols ospf area 1 interface ge-0/0/1.0
-set authentication md5 1 key juniper123
+edit protocols ospf area 1 interface ge-0/0/0
+set authentication md5 1 key lab123
 commit
 ```
 We do the same commands on both neighboring interfaces.
@@ -39,6 +42,8 @@ We do the same commands on both neighboring interfaces.
 ### Show command
 
 ```commandline
-show ospf interface ge-0/0/.1 extensive
+show ospf interface ge-0/0/0.0 extensive
 ```
 You can see it has sucessfully paired a key because of the "Auth type: MD5" and that the adjancency is up because of the "Adj count: 1"
+
+![image](https://user-images.githubusercontent.com/118945715/215357927-2688d9ce-f70c-4cc1-b65c-b6ef6f337fcf.png)
