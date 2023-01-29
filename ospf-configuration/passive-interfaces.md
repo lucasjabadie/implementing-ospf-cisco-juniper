@@ -7,7 +7,10 @@ In this project, we will utilize OSPF passive interfaces on routers that are con
 
 ### Network Diagram
 
-By looking at the diagram, we can see that the interfaces we should configure as passive are <b>Cr1 e0/3</b> and <b>Cr5 e0/1</b>
+By looking at the diagram, we can see that the interfaces we should configure as passive are <b>Cr1 e0/0</b> and <b>Cr5 e0/1</b> as those are the interfaces that are pointing towards external networks.
+
+![image](https://user-images.githubusercontent.com/118945715/215354510-aae1c9a3-736d-4f15-9533-04efeb0146d9.png)
+
 
 ## Cisco configuration example:
 
