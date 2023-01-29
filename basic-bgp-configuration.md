@@ -102,7 +102,7 @@ interface Loopback2
 interface Loopback3
  ip address 15.0.2.2 255.255.255.240
  
- router bgp 2023
+ router bgp 2
  redistribute connected
  neighbor 3.0.2.1 remote-as 1023
  
@@ -113,7 +113,7 @@ interface Loopback3
 ```commandline
 router bgp 1023
  bgp log-neighbor-changes
- neighbor 3.3.2.2 remote-as 2
+ neighbor 3.0.2.2 remote-as 2
  
 ```
 
