@@ -19,13 +19,13 @@ If we take a look at our diagram below, we can see that the link that we have to
 <b> First, we need the router id on both routers</b>
 
 Cisco:
-```commandline
-show ip ospf
-```
+- show ip ospf
+
+
 Juniper:
-```commandline
-show ospf overview
-```
+
+- show ospf overview
+
 ![image](https://user-images.githubusercontent.com/118945715/215355357-b1dfb4fc-6cfa-4f89-8379-b091d4261767.png) ![image](https://user-images.githubusercontent.com/118945715/215355380-0c513921-7043-4cc8-a694-135734c6509f.png)
 
 
