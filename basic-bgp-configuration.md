@@ -34,14 +34,21 @@ set group LAB type external peer-as 1023 neighbor 1.1.6.2
 commit
 ```
 
+- The interface ge-0/0/9 is configured for VLAN tagging with multiple VLAN subinterfaces and assigned IP addresses. These subinterfaces will be useful for populating Cr1's IP route table with IP addresses learned from BGP.
+- A policy-statement named "BGP-Routes" is created to accept direct protocol traffic and applied to the BGP configuration. A peer group is also defined with external type, peer AS 1023, and neighbor IP 1.1.6.2, which is Cr1.
+- The device's autonomous system number is set to 1.
+
 ### Cr1 Configuration
 
 ```commandline
 router bgp 1023
  bgp log-neighbor-changes
- neighbor 1.1.2.1 remote-as 1
-
+ neighbor 1.1.6.1 remote-as 1
 ```
+- This setups BGP with an autonomous system number of 1023 and that he neighbor IP address is 1.1.6.1 and specifies that its autonomous system number is 1.
+- And of course, BGP log-neighbor-changes which enables logging of BGP neighbor state changes:
+
+![image](https://user-images.githubusercontent.com/118945715/215349897-d393dfbe-33b7-4740-b436-857ed22ae106.png)
 
 
 
