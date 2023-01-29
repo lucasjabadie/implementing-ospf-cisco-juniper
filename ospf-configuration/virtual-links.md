@@ -37,7 +37,7 @@ In Cisco, we do the virtual link configuration under the ospf process level.
 
 ```commandline
 router ospf 1
-area 2 virtual link 111.111.2.4
+area 2 virtual-link 111.111.2.4
 ```
 The area that we see in this command, is the transit area. Means that if you are configuring a link between Area 3 and Area 0 on the Diagram, the traffic Area where the virtual link packet travels is Area 2. That's the Area we're gonna use in Cisco.
 
@@ -46,6 +46,6 @@ In Juniper, we do the virtual link configuration under the protocols level.
 
 ```commandline
 edit protocols ospf
-set area 0 virtual link neighbor-id 111.111.1.4 transit-area 2
+set area 0 virtual-link neighbor-id 111.111.1.4 transit-area 2
 ```
 Creating virtual links on Juniper is different than Cisco. Cisco's command uses transit area, but Juniper needs area 0 first before the transit area.
