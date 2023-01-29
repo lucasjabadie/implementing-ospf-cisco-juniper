@@ -104,7 +104,7 @@ interface Loopback3
  
  router bgp 2023
  redistribute connected
- neighbor 3.3.2.1 remote-as 1023
+ neighbor 3.0.2.1 remote-as 1023
  
 ```
 
