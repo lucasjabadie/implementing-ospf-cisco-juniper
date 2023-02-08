@@ -1,0 +1,68 @@
+## Last commit: 2023-01-29 21:11:17 UTC by root
+version 14.1R1.10;
+system {
+    host-name Jr4;
+    root-authentication {
+        encrypted-password "$1$iiqdh9ru$CBQygri2MkpfgtgdGo8GO1"; ## SECRET-DATA
+    }
+    login {
+        user lab {
+            uid 2000;
+            class super-user;
+            authentication {
+                encrypted-password "$1$oW1NeMUu$N7IVMfy8GfJ02jzQzJ39h/"; ## SECRET-DATA
+            }
+        }
+    }
+    services {
+        telnet {
+            connection-limit 5;
+        }
+    }
+    syslog {
+        user * {
+            any emergency;
+        }
+        file messages {
+            any notice;
+            authorization info;
+        }
+        file interactive-commands {
+            interactive-commands any;
+        }
+    }
+}
+interfaces {
+    ge-0/0/0 {
+        unit 0 {
+            family inet {
+                address 1.0.2.2/30;
+            }
+        }
+    }
+    ge-0/0/1 {
+        unit 0 {
+            family inet {
+                address 2.0.1.2/30;
+            }
+        }
+    }
+    lo0 {
+        unit 0 {
+            family inet {
+                address 111.111.2.4/32;
+            }
+        }
+    }
+}
+protocols {
+    ospf {
+        area 0.0.0.0 {
+            virtual-link neighbor-id 111.111.1.4 transit-area 0.0.0.2;
+            interface ge-0/0/0.0;
+        }
+        area 0.0.0.2 {
+            interface ge-0/0/1.0;
+        }
+    }
+}
