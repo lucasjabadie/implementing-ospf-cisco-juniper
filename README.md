@@ -7,3 +7,10 @@ In this project, we will demonstrate the deployment of OSPF routing protocols on
 
 
 It is suggested starting with the basics of IP and BGP configuration before moving on to OSPF. So then we can fully focus on OSPF. There's also a documentation repository available if you want to see the configurations of all the devices we're using."
+
+
+At the end of the project:
+- Routers in area 1 should be able to ping area 3.
+- Other areas should learn routes from area 1 in summarized form.
+- BGP routes should be learned via OSPF.
+- All OSPF connections should be secured with OSPF Authentication.
