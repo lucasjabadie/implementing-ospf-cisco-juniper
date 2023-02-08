@@ -1,0 +1,85 @@
+## Last commit: 2023-01-29 12:27:22 UTC by root
+version 14.1R1.10;
+system {
+    host-name Jr1;
+    root-authentication {
+        encrypted-password "$1$iiqdh9ru$CBQygri2MkpfgtgdGo8GO1"; ## SECRET-DATA
+    }
+    login {
+        user lab {
+            uid 2000;
+            class super-user;
+            authentication {
+                encrypted-password "$1$oW1NeMUu$N7IVMfy8GfJ02jzQzJ39h/"; ## SECRET-DATA
+            }
+        }
+    }
+    services {
+        telnet {
+            connection-limit 5;
+        }
+    }
+    syslog {
+        user * {
+            any emergency;
+        }
+        file messages {
+            any notice;
+            authorization info;
+        }
+        file interactive-commands {
+            interactive-commands any;
+        }
+    }
+}
+interfaces {
+    ge-0/0/0 {
+        unit 0 {
+            family inet {
+                address 1.1.6.1/30;
+            }
+        }
+    }
+    ge-0/0/9 {
+        vlan-tagging;
+        unit 0 {
+            vlan-id 1;
+            family inet {
+                address 20.23.0.1/30;
+            }
+        }
+        unit 1 {
+            vlan-id 2;
+            family inet {
+                address 20.23.1.1/29;
+            }
+        }
+        unit 2 {
+            vlan-id 3;
+            family inet {
+                address 20.23.2.1/28;
+            }
+        }
+    }
+}
+routing-options {
+    autonomous-system 1;
+}
+protocols {
+    bgp {
+        export BGP-Routes;
+        group LAB {
+            type external;
+            peer-as 1023;
+            neighbor 1.1.6.2;
+        }
+    }
+}
+policy-options {
+    policy-statement BGP-Routes {
+        term 1 {
+            from protocol direct;
+            then accept;
+        }
+    }
+}
